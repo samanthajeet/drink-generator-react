@@ -58,10 +58,16 @@ class AddtoCabinet extends Component {
   }
 
   handleChange(prop, val) {
-    console.log(val);
     this.setState({
       [prop]: val
     });
+  }
+
+  addToCabinet = async() => {
+    const ingredient_name = this.state.userInputName
+    const ingredient_type = this.state.userInputType
+    let response = await axios.post(`/api/addToCabinet`, {ingredient_name, ingredient_type})  
+    this.setState({userInputName: '', userInputType:'select type', cabinet: response.data})
   }
 
   render() {
@@ -81,6 +87,7 @@ class AddtoCabinet extends Component {
           <input
             placeholder="add to your cabinet"
             onChange={e => this.handleChange("userInputName", e.target.value)}
+            value={this.state.userInputName}
           />
           <Select
             options={types}
@@ -88,7 +95,7 @@ class AddtoCabinet extends Component {
             styles={customStyles}
           />
         </CabinetInput>
-        <button>add item</button>
+        <button onClick={() => this.addToCabinet()} >add item</button>
         {mappedCabinet}
       </Cabinet>
     );

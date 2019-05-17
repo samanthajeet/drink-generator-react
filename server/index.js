@@ -16,3 +16,4 @@ massive(CONNECTION_STRING).then( db => {
 //endpoints
 const ctrl = require('./controllers/cabinetController')
 app.get(`/api/cabinet`, ctrl.getCabinet)
+app.post(`/api/addToCabinet`, ctrl.addToCabinet)
