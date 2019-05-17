@@ -11,3 +11,8 @@ massive(CONNECTION_STRING).then( db => {
     app.set('db', db);
     app.listen( SERVER_PORT, () => console.log(`bingpot on ${SERVER_PORT}`))
 })
+
+
+//endpoints
+const ctrl = require('./controllers/cabinetController')
+app.get(`/api/cabinet`, ctrl.getCabinet)
