@@ -8,7 +8,13 @@ const Cabinet = styled.div`
   flex-direction: column;
   align-items: center;
   width: 50%;
-  border: 1px solid black;
+
+  h2{
+      color: #A9E6E9
+      font-size: 2rem;
+      margin: 1rem;
+      text-shadow: -0.1rem 0.1rem #087A7F
+  }
 `;
 
 const CabinetInput = styled.div`
@@ -82,7 +88,7 @@ class AddtoCabinet extends Component {
 
     return (
       <Cabinet>
-        <h1>your cabinet</h1>
+        <h2>your cabinet</h2>
         <CabinetInput>
           <input
             placeholder="add to your cabinet"

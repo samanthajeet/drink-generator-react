@@ -1,5 +1,8 @@
 .App {
   text-align: center;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Quicksand', sans-serif;
 }
 
 .App-logo {
