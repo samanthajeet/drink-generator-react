@@ -17,3 +17,4 @@ massive(CONNECTION_STRING).then( db => {
 const ctrl = require('./controllers/cabinetController')
 app.get(`/api/cabinet`, ctrl.getCabinet)
 app.post(`/api/addToCabinet`, ctrl.addToCabinet)
+app.delete(`/api/deleteItem/:id`, ctrl.deleteFromCabinet)
