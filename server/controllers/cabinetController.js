@@ -9,6 +9,13 @@ module.exports = {
         const {ingredient_name ,ingredient_type } = req.body
         let response = await db.addToCabinet({ingredient_name ,ingredient_type})
         res.status(200).send(response)
+    },
+
+    deleteFromCabinet: async(req,res) => {
+        const db = req.app.get('db');
+        const {id} = req.params
+        let response = await db.deleteFromCabinet({id})
+        res.status(200).send(response)
     }
 
 }

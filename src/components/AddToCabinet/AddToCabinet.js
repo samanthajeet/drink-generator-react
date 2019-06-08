@@ -76,12 +76,19 @@ class AddtoCabinet extends Component {
     this.setState({userInputName: '', userInputType:'select type', cabinet: response.data})
   }
 
+  deleteItem = async(id) => {
+    let response = await axios.delete(`/api/deleteItem/${id}`)
+    this.setState({cabinet:response.data})
+  }
+
   render() {
 
     const mappedCabinet = this.state.cabinet.map( item => {
         return (
-            <div key={item.id}>
+            <div key={item.id} >
                 <p>{item.ingredient_name}</p>
+                <p>{item.ingredient_type}</p>
+                <button onClick={() => this.deleteItem(item.id)} >X</button>
             </div>
         )
     })
